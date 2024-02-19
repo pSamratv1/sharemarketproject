@@ -1,15 +1,16 @@
+// Client use
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
 import { MdOutlineDateRange } from "react-icons/md";
 import BannerTabs from "./BannerTabs";
 
-const Banner = () => {
-  const [currentTime, setCurrentTime] = useState(dayjs());
+const Banner = ({ initialTime }) => {
+  const [currentTime, setCurrentTime] = useState(dayjs(initialTime));
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentTime(dayjs());
+      setCurrentTime((prevTime) => prevTime.add(1, "second"));
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -22,9 +23,7 @@ const Banner = () => {
           <MdOutlineDateRange />
           <div>{currentTime.format("DD MMMM YYYY, dddd")}</div>
         </div>
-        <div>
-          {currentTime ? currentTime.format("HH:mm:ss A") : "Loading..."}
-        </div>
+        <div>{currentTime ? currentTime.format("HH:mm A") : "Loading..."}</div>
       </div>
       <div className="flex h-12 bg-[#093134] text-white justify-around items-center">
         <div className="hover:text-[#FFC0CB] active:text-[#FFC0CB] hover:underline hover:underline-offset-8 active:underline active:underline-offset-8">

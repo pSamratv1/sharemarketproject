@@ -31,3 +31,28 @@ body {
     text-wrap: balance;
   }
 }
+.loading-skeleton {
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-skeleton-item {
+  width: 100%;
+  height: 20px; /* Adjust height as needed */
+  background-color: #f0f0f0; /* Light gray or your desired background color */
+  margin-bottom: 10px; /* Adjust margin between skeleton items */
+  border-radius: 4px; /* Add rounded corners */
+  animation: loading 1.5s infinite ease-in-out; /* Animation for loading effect */
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
