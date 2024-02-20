@@ -17,8 +17,8 @@ const Banner = ({ initialTime }) => {
   }, []); // Empty dependency array ensures that the effect runs only once
 
   return (
-    <>
-      <div className="daetime_banner flex h-7 w-full bg-slate-500 justify-between px-24 items-center">
+    <section className="dateime_banner">
+      <div className=" flex h-7 bg-slate-500 justify-between px-24 items-center">
         <div className="flex gap-3 items-center justify-center px-2">
           <MdOutlineDateRange />
           <div>{currentTime.format("DD MMMM YYYY, dddd")}</div>
@@ -110,9 +110,8 @@ const Banner = ({ initialTime }) => {
         <div className="hover:text-[#FFC0CB] active:text-[#FFC0CB] hover:underline hover:underline-offset-8 active:underline active:underline-offset-8">
           ABOUT US
         </div>
-        <div></div>
       </div>
-    </>
+    </section>
   );
 };
 

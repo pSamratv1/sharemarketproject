@@ -1,29 +1,35 @@
 import React, { useState } from "react";
-import logo from "../../../public/logo.png";
+import logo from "../../../public/sharehub-yIE25QB_.svg";
 import { GoPerson } from "react-icons/go";
 import { IoMoon, IoSearch, IoSunnyOutline } from "react-icons/io5";
-const Header = () => {
-  const [dark, setDarkMode] = useState(false);
+import Image from "next/image";
+import { toggleDarkMode } from "@/redux/slice/AppSlice";
+import { useDispatch, useSelector } from "react-redux";
 
+const Header = () => {
+  const dispatch = useDispatch();
+
+  const { darkModeEnabled } = useSelector((state) => state.darkMode);
+  console.log(darkModeEnabled, "dasdasda");
   const toggleMode = () => {
-    setDarkMode(!dark);
+    dispatch(toggleDarkMode());
   };
   return (
     <section
       className={`h-28 w-full  flex justify-around items-center ${
-        dark ? "bg-[#1A202C]" : "bg-white"
+        darkModeEnabled ? "bg-[#1A202C]" : "bg-white"
       }`}
     >
       <div className="flex h-auto gap-4 items-center">
-        <img src={logo} />
+        <Image src={logo} width={100} height={100} />
         <div
           className={`flex w-[18rem] items-center rounded-xl shadow-lg ${
-            dark ? "bg-[#093134]" : "bg-slate-200"
+            darkModeEnabled ? "bg-[#093134]" : "bg-slate-200"
           }`}
         >
           <input
             className={`h-[3rem] w-[16rem]  text-lg px-3 rounded-xl ${
-              dark ? "bg-[#093134] text-white" : "bg-slate-200"
+              darkModeEnabled ? "bg-[#093134] text-white" : "bg-slate-200"
             }`}
             type="search"
             placeholder="Company Name / Symbol"
@@ -50,10 +56,12 @@ const Header = () => {
         >
           <div
             className={`${
-              dark ? "bg-[#1A202C] text-white" : "bg-white text-black"
+              darkModeEnabled
+                ? "bg-[#1A202C] text-white"
+                : "bg-white text-black"
             }`}
           >
-            {dark ? <IoSunnyOutline /> : <IoMoon />}
+            {darkModeEnabled ? <IoSunnyOutline /> : <IoMoon />}
           </div>
         </button>
       </div>

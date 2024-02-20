@@ -5,14 +5,15 @@ import { SlLocationPin } from "react-icons/sl";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { SiYoutube } from "react-icons/si";
 import Download from "../../../public/351333.svg";
+import logo from "../../../public/sharehub-yIE25QB_.svg";
 
 import Image from "next/image";
 const Footer = () => {
   return (
-    <div className="h-[30rem] w-full bg-[#093134] py-20 px-6 text-white">
+    <div className="h-fit w-full bg-[#093134] py-10 px-6 text-white">
       <div className="flex gap-5">
         <div className="flex flex-col flex-1 gap-3">
-          <div className="h-20 p-1">Logo</div>
+          <Image src={logo} width={100} height={100} />
           <div className="h-10 py-2 px-2 text-2xl font-semibold">
             Softshala Pvt. Ltd
           </div>

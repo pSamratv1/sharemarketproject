@@ -9,7 +9,10 @@ const BannerTabs = ({ title = "", options = [], isFlag }) => {
       </div>
       <div className="absolute h-auto w-[15rem] top-[180px] bg-white shadow-md p-2 text-black hidden group-hover:block">
         {options?.map((items, index) => (
-          <div className="flex hover:bg-[#093134] hover:text-white px-3 py-1">
+          <div
+            key={index}
+            className="flex hover:bg-[#093134] hover:text-white px-3 py-1"
+          >
             {items.includes("!") ? (
               <div className="flex items-center gap-6">
                 {items}
